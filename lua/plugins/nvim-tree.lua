@@ -11,7 +11,7 @@ return {
 		-- On utilise <leader>e pour ouvrir/fermer l'explorateur
 		vim.keymap.set(
 			"n",
-			"<leader>e",
+			"<C-n>",
 			"<cmd>NvimTreeFindFileToggle<CR>",
 			{ desc = "Ouverture/fermeture de l'explorateur de fichiers" }
 		)

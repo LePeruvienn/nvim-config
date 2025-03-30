@@ -27,5 +27,6 @@ keymap("n", "<C-k>", "<C-w>k", { desc = "Déplace le curseur dans la fenêtre du
 keymap("n", "<C-l>", "<C-w>l", { desc = "Déplace le curseur dans la fenêtre droite" })
 
 -- Navigation entre les buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<Tab>", ":bnext<CR>", opts)
+keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
+keymap("n", "<Space>x", ":Bdelete<CR>", opts)
