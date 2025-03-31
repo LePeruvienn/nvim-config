@@ -12,6 +12,18 @@ return {
 		-- import de lsp-zero
 		local lsp_zero = require("lsp-zero")
 
+		-- Configure diagnostics display
+		vim.diagnostic.config({
+			virtual_text = {
+				prefix = "●", -- Could be '●', '▎', 'x', etc.
+				spacing = 4, -- Space between the prefix and the diagnostic message
+			},
+			signs = true, -- Enable signs in the sign column
+			update_in_insert = false, -- Update diagnostics in insert mode
+			underline = true, -- Underline errors and warnings
+			severity_sort = true, -- Sort diagnostics by severity
+		})
+
 		-- lsp_attach sert à activer des fonctionnalités qui ne seront disponibles
 		-- que s'il il y a un LSP d'activé pour le fichier courant
 		local lsp_attach = function(_, bufnr)

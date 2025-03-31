@@ -5,7 +5,7 @@ return {
 	opts = {},                 -- Options for the plugin (if any)
 	config = function()        -- Configuration function for the plugin
 	  -- Set the Gruvbox color scheme
-	  vim.cmd([[colorscheme gruvbox]])
+	  vim.cmd([[colorscheme retrobox]])
 	  -- Optional: Set Gruvbox options
 	  vim.o.background = "dark" -- or "light" for light mode
 	end,

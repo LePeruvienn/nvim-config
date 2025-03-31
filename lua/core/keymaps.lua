@@ -5,10 +5,10 @@ vim.g.mapleader = " "
 local keymap = vim.keymap.set
 
 -- on utilise ;; pour sortir du monde insertion
-keymap("i", ";;", "<ESC>", { desc = "Sortir du mode insertion avec ;;" })
+-- keymap("i", ";;", "<ESC>", { desc = "Sortir du mode insertion avec ;;" })
 
 -- on efface le surlignage de la recherche
-keymap("n", "<leader>nh", ":nohl<CR>", { desc = "Effacer le surlignage de la recherche" })
+keymap("n", "<Esc>", ":nohl<CR>", { desc = "Effacer le surlignage de la recherche" })
 
 -- I déplace le texte sélectionné vers le haut en mode visuel (activé avec v)
 keymap("v", "<S-i>", ":m .-2<CR>==", { desc = "Déplace le texte sélectionné vers le haut en mode visuel" })
