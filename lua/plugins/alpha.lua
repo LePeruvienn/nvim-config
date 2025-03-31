@@ -19,11 +19,13 @@ return {
 
 		-- Boutons personnalisés
 		dashboard.section.buttons.val = {
-			dashboard.button("e", "  Nouveau fichier", ":ene <BAR> startinsert <CR>"),
-			dashboard.button("f", "  Rechercher un fichier", ":Telescope find_files <CR>"),
-			dashboard.button("r", "  Fichiers récents", ":Telescope oldfiles <CR>"),
-			dashboard.button("s", "  Paramètres", ":e $MYVIMRC <CR>"),
-			dashboard.button("q", "  Quitter", ":qa<CR>"),
+			dashboard.button("p", "📂  Projects", ":Telescope projects<CR>"),
+			dashboard.button("e", "📄  Nouveau fichier", ":ene <BAR> startinsert <CR>"),
+			dashboard.button("f", "🔎  Rechercher un fichier", ":Telescope find_files <CR>"),
+			dashboard.button("r", "🕘  Fichiers récents", ":Telescope oldfiles <CR>"),
+			dashboard.button("l", "💤  Lazy", ":Lazy<CR>"),
+			dashboard.button("s", "⚙️  Paramètres", ":e $MYVIMRC <CR>"),
+			dashboard.button("q", "❌  Quitter", ":qa<CR>"),
 		}
 
 		-- Activation de alpha-nvim
