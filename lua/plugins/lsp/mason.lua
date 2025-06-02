@@ -34,7 +34,6 @@ return {
 				"prettier", -- prettier formatter
 				"ruff", -- ruff formater (différent du LSP, mais dans le même executable)
 				"stylua", -- lua formater
-				"eslint_d", -- eslint formater
 			},
 		})
 
@@ -56,6 +55,7 @@ return {
 				"sqlls",
 				"svelte",
 				"yamlls",
+				"omnisharp",
 			},
 			handlers = {
 				-- Fonction appelée au chargement de chaque LSP de la liste ensure_installed
