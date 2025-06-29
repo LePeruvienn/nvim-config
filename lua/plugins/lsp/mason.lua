@@ -55,7 +55,8 @@ return {
 				"sqlls",
 				"svelte",
 				"yamlls",
-				"omnisharp",
+				"csharp_ls"
+				--"omnisharp",
 			},
 			handlers = {
 				-- Fonction appelée au chargement de chaque LSP de la liste ensure_installed
