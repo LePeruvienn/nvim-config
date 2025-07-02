@@ -1,12 +1,18 @@
+local sysname = vim.loop.os_uname().sysname
+local is_linux = sysname == "Linux"
+
 return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
-	dependencies = {
+
+	-- add fzf dependencies if we are on linux
+	dependencies = vim.tbl_extend("force", {
 		"nvim-lua/plenary.nvim",
-		-- fzf implémentation en C pour plus de rapidité
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
-	},
+	}, is_linux and {
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	} or {}),
+
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
@@ -29,7 +35,10 @@ return {
 			},
 		})
 
-		telescope.load_extension("fzf")
+		-- Load fzf extension if we are on linux
+		if is_linux then
+			telescope.load_extension("fzf")
+		end
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
