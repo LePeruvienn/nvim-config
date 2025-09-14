@@ -30,6 +30,7 @@ opt.backspace = "indent,eol,start" -- on autorise l'utilisation de retour quand 
 
 -- presse papier
 opt.clipboard = "unnamedplus" -- on utilise le presse papier du système par défaut
+opt.mouse = "" -- désactive la souris
 
 -- split des fenêtres
 opt.splitright = true -- le split vertical d'une fenêtre s'affiche à droite
