@@ -17,4 +17,26 @@ function SetIndentation(args)
 	end
 end
 
+function AddNerdTreeIgnore(args)
+
+	-- Retrieve the current ignore patterns
+    local current_ignore = require('nvim-tree').config.filters.custom or {}
+
+	local pattern = '\\.' .. tostring(args.args) .. "$"
+
+	-- Add the new pattern to the ignore list if it’s not already present
+	if not vim.tbl_contains(current_ignore, pattern) then
+		table.insert(current_ignore, pattern)
+		print("Added to NERDTreeIgnore : ", pattern)
+		-- Update the nvim-tree ignore setting
+		require('nvim-tree').setup {
+			filters = {
+				git_ignored = true,     -- Enable ignoring files specified in .gitignore
+				custom = current_ignore   -- Directly set custom ignore patterns
+			}
+		}
+	end
+end
+
 vim.api.nvim_create_user_command('SetIndent', SetIndentation, { nargs = 1 })
+vim.api.nvim_create_user_command('AddNerdTreeIgnore', AddNerdTreeIgnore, { nargs = 1 })
