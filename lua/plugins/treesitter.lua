@@ -1,49 +1,24 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	config = function()
-		local treesitter = require("nvim-treesitter.configs")
-
-		-- configuration de treesitter
-		treesitter.setup({
-			-- activation de la coloration syntaxique
-			highlight = {
-				enable = true,
-			},
-			-- activation de l'indentation améliorée
-			indent = { enable = true },
-
-			-- langages installés et configurés
-			ensure_installed = {
-				"bash",
-				"dockerfile",
-				"gitignore",
-				"html",
-				"javascript",
-				"json",
-				"lua",
-				"markdown",
-				"markdown_inline",
-				"python",
-				"rst",
-				"rust",
-				"cpp",
-				"c",
-				"typescript",
-				"vim",
-				"yaml",
-			},
-			-- lorse de l'appui sur <Ctrl-space> sélectionne le bloc
-			-- courant spécifique au langage de programmation
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<C-space>",
-					node_incremental = "<C-space>",
-					scope_incremental = false,
-					node_decremental = "<bs>",
-				},
-			},
-		})
-	end,
+    "nvim-treesitter/nvim-treesitter",
+    version = false, -- Last release is way too old
+    build = ":TSUpdate",
+    -- event = { "BufReadPost", "BufNewFile" },
+    lazy = false, -- Keep false to ensure loading for Neo-tree
+    main = "nvim-treesitter.configs", -- Lazy handles the require logic here
+    branch = "main", -- Explicitly force the stable branch
+    opts = {
+        ensure_installed = { "lua", "vim", "vimdoc", "query", "python", "c", "cpp", "markdown", "markdown_inline", "csv", "json"},
+        auto_install = true,
+        highlight = { enable = true },
+        indent = { enable = true },
+    },
+    -- Fallback config to handle edge cases
+    config = function(_, opts)
+        -- Protective call: If treesitter fails to load, don't crash neovim
+        local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+        if not status_ok then
+            return
+        end
+        configs.setup(opts)
+    end
 }
