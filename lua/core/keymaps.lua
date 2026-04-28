@@ -8,8 +8,7 @@ local keymap = vim.keymap.set
 -- keymap("i", ";;", "<ESC>", { desc = "Sortir du mode insertion avec ;;" })
 
 -- on efface le surlignage de la recherche & enlèves les notification Noices
-keymap("n", "<Esc>", ":nohl<CR>", { desc = "Effacer le surlignage de la recherche" })
-keymap("n", "<Esc>", ":NoiceDismiss<CR>", { desc = "Enlèves les notification de Noice à l'écran" })
+keymap("n", "<Esc>", ":NoiceDismiss<CR>nohlsearch<CR>", { desc = "Enlèves les notification de Noice + surlignage recherche" })
 
 -- I déplace le texte sélectionné vers le haut en mode visuel (activé avec v)
 keymap("v", "<S-i>", ":m .-2<CR>==", { desc = "Déplace le texte sélectionné vers le haut en mode visuel" })
