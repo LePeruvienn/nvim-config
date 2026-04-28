@@ -5,7 +5,7 @@ return {
     -- event = { "BufReadPost", "BufNewFile" },
     lazy = false, -- Keep false to ensure loading for Neo-tree
     main = "nvim-treesitter.configs", -- Lazy handles the require logic here
-    branch = "main", -- Explicitly force the stable branch
+    branch = "master", -- Explicitly force the stable branch
     opts = {
         ensure_installed = { "lua", "vim", "vimdoc", "query", "python", "c", "cpp", "markdown", "markdown_inline", "csv", "json"},
         auto_install = true,
