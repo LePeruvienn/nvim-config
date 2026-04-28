@@ -67,5 +67,29 @@ return {
 			"<cmd>Telescope grep_string<cr>",
 			{ desc = "Recherche de la chaîne de caractères sous le curseur" }
 		)
+		keymap.set(
+			"n",
+			"<leader>fp",
+			"<cmd>Telescope projects<cr>",
+			{ desc = "Changer de projet" }
+		)
+		keymap.set(
+			"n",
+			"<leader>gs",
+			"<cmd>Telescope git_status<cr>",
+			{ desc = "Voir les changements git" }
+		)
+		keymap.set(
+			"n",
+			"<leader>gc",
+			"<cmd>Telescope git_commits<cr>",
+			{ desc = "Changer de commits git" }
+		)
+		keymap.set(
+			"n",
+			"<leader>gb",
+			"<cmd>Telescope git_branches<cr>",
+			{ desc = "Changer de branche git" }
+		)
 	end,
 }
