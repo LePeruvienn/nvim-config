@@ -34,11 +34,18 @@ return {
 				type = "cppdbg",
 				request = "launch",
 				program = function()
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					local path = vim.fn.input("Executable: ", vim.fn.getcwd() .. "/", "file")
+					if path ~= "" then
+						return path
+					end
+					return dap.ABORT
 				end,
 				cwd = "${workspaceFolder}",
 				stopAtEntry = true,
 				MIMode = "gdb",
+				console = "integratedTerminal",
+				-- console = "externalTerminal"
+				-- externalConsole = true,
 			},
 		}
 
@@ -46,30 +53,33 @@ return {
 
 		ui.setup()
 
-		vim.fn.sign_define("DapBreakpoint", { text = "🔴" })
+		vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
+		vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
 
 		dap.listeners.before.attach.dapui_config = function()
-			ui.open()
+			-- ui.open()
 		end
 		dap.listeners.before.launch.dapui_config = function()
-			ui.open()
+			-- ui.open()
 		end
 		dap.listeners.before.event_terminated.dapui_config = function()
-			ui.close()
+			-- ui.close()
 		end
 		dap.listeners.before.event_exited.dapui_config = function()
-			ui.close()
+			-- ui.close()
 		end
 
 		-- keymaps
 		local keymap = vim.keymap.set
 
-		keymap("n", "<F5>", dap.continue)
-		keymap("n", "<F10>", dap.step_over)
-		keymap("n", "<F11>", dap.step_into)
-		keymap("n", "<F12>", dap.step_out)
+		keymap("n", "<F5>", dap.continue, { desc = "lancer une session de debbogage / continue "})
+		keymap('n', '<F6>', dap.terminate, { desc = "Kill la session de débbogage"})
+		keymap("n", "<F10>", dap.step_over, { desc = "Debug Step Over"})
+		keymap("n", "<F11>", dap.step_into, { desc = "Debug Step Into"})
+		keymap("n", "<F12>", dap.step_out, { desc = "Debug Step Out"})
 
-		keymap("n", "<Leader>b", dap.toggle_breakpoint)
-		keymap("n", "<Leader>du", ui.toggle)
+
+		keymap("n", "<Leader>b", dap.toggle_breakpoint, { desc = "Ajouter un Breakpoint à la ligne actuelle"})
+		keymap("n", "<Leader>du", ui.toggle, { desc = "Toggle affichage de débbogage"})
 	end,
 }
