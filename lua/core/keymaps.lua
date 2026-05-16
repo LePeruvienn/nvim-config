@@ -30,6 +30,8 @@ keymap("n", "<C-k>", "<C-w>k", { desc = "Déplace le curseur dans la fenêtre du
 keymap("n", "<C-l>", "<C-w>l", { desc = "Déplace le curseur dans la fenêtre droite" })
 
 -- Navigation entre les buffers
-keymap("n", "<Tab>", ":bnext<CR>", opts)
-keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
-keymap("n", "<Space>x", ":Bdelete<CR>", opts)
+keymap("n", "<Tab>", ":bnext<CR>", { desc = "Allez à l'onglet suivant" })
+keymap("n", "<S-Tab>", ":bprevious<CR>", { desc = "Allez à l'onglet précédent" })
+
+-- Zen Mode
+keymap("n", "<Space>z", ":ZenMode<CR>", { desc = "Passer en mode Zen 🤙"})
