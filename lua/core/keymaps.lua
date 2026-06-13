@@ -35,4 +35,4 @@ keymap("n", "<S-Tab>", ":bprevious<CR>", { desc = "Allez à l'onglet précédent
 keymap("n", "<Space>x", ":Bdelete<CR>", { desc = "Ferme l'onglet courant" })
 
 -- Zen Mode
-keymap("n", "<Space>z", ":ZenMode<CR>", { desc = "Passer en mode Zen 🤙"})
+keymap("n", "<Space>zz", ":ZenMode<CR>", { desc = "Passer en mode Zen 🤙"})

@@ -3,7 +3,6 @@ local is_linux = sysname == "Linux"
 
 return {
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
 
 	-- add fzf dependencies if we are on linux
 	dependencies = vim.tbl_extend("force", {
