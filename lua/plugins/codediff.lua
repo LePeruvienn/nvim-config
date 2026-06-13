@@ -26,6 +26,42 @@ return {
 		},
 		-- Keymaps in diff view 
 		keymaps = {
+			view = {
+				quit = "q",                    -- Close diff tab
+				toggle_explorer = "<leader>e",  -- Toggle explorer visibility (explorer mode only)
+				focus_explorer = "<leader>.e",   -- Focus explorer panel (explorer mode only)
+				next_hunk = "]c",   -- Jump to next change
+				prev_hunk = "[c",   -- Jump to previous change
+				close_on_open_in_prev_tab = false, -- Close codediff tab after gf opens file in previous tab
+				toggle_stage = "-", -- Stage/unstage current file (works in explorer and diff buffers)
+				stage_hunk = "<leader>hs",   -- Stage hunk under cursor to git index
+				unstage_hunk = "<leader>hu", -- Unstage hunk under cursor from git index
+				discard_hunk = "<leader>hr", -- Discard hunk under cursor (working tree only)
+				hunk_textobject = "ih",      -- Textobject for hunk (vih to select, yih to yank, etc.)
+				show_help = "g?",   -- Show floating window with available keymaps
+				align_move = "gm", -- Temporarily align moved code blocks across panes
+				toggle_layout = "t", -- Toggle between side-by-side and inline layout
+				toggle_compact = "gc", -- Toggle compact mode (fold unchanged regions)
+			},
+			explorer = {
+				select = "<CR>",    -- Open diff for selected file
+				hover = "K",        -- Show file diff preview
+				refresh = "R",      -- Refresh git status
+				stage_all = "S",    -- Stage all files
+				unstage_all = "U",  -- Unstage all files
+				restore = "X",      -- Discard changes (restore file)
+				toggle_changes = "gu",  -- Toggle Changes (unstaged) group visibility
+				toggle_staged = "gs",   -- Toggle Staged Changes group visibility
+				-- Fold keymaps (Vim-style)
+				fold_open = "zo",           -- Open fold (expand current node)
+				fold_open_recursive = "zO", -- Open fold recursively (expand all descendants)
+				fold_close = "zc",          -- Close fold (collapse current node)
+				fold_close_recursive = "zC", -- Close fold recursively (collapse all descendants)
+				fold_toggle = "za",         -- Toggle fold (expand/collapse current node)
+				fold_toggle_recursive = "zA", -- Toggle fold recursively
+				fold_open_all = "zR",       -- Open all folds in tree
+				fold_close_all = "zM",      -- Close all folds in tree
+			},
 			conflict = {
 				accept_incoming = "<leader>ct",  -- Accept incoming (theirs/left) change
 				accept_current = "<leader>co",   -- Accept current (ours/right) change
